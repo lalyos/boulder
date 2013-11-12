@@ -32,4 +32,12 @@ function BoulderCtrl($scope) {
       $scope.loggedIn = true;
   };
 
+  $scope.increaseTries = function(boulder) {
+      boulder.tries = boulder.tries + 1;
+  };
+
+  $scope.decreaseTries = function(boulder) {
+      boulder.tries = boulder.tries - 1;
+  };
+
 }
