@@ -35,12 +35,6 @@
                 border-color: #eea236;           
             }
             
-            a.list-group-item  i {
-                position: absolute;
-                font-size: 32px;
-                left: 10px;
-            }
-            
             a.list-group-item {
                 position: relative;
                 padding: 12px 15px 12px 50px ;
@@ -55,6 +49,27 @@
             .navbar .container {
                 position: relative;
             }
+            
+            i.glyphicon-plus-sign {
+                position: absolute;
+                right: 110px;
+                font-size: 32px;
+            }
+
+           i.glyphicon-minus-sign {
+                position: absolute;
+                right: 70px;
+                font-size: 32px;
+            }
+
+           i.glyphicon-check,
+           i.glyphicon-unchecked {
+                position: absolute;
+                font-size: 32px;
+                left: 10px;
+            }
+            
+
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
@@ -100,6 +115,11 @@
                     <i ng-class="checkedClass(boulder.climbed)" ng-click="boulder.climbed = ! boulder.climbed"></i> 
 
                     {{boulder.name}}
+                    
+                    <span ng-hide="boulder.id != selected">
+                    <i class="glyphicon glyphicon-plus-sign" ></i>
+                    <i class="glyphicon glyphicon-minus-sign"></i>
+                    </span>
                      <span class="badge {{boulder.diff}}">{{boulder.tries}}</span>
                 </a>
             </div>
