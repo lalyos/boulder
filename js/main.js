@@ -37,7 +37,14 @@ function BoulderCtrl($scope) {
   };
 
   $scope.decreaseTries = function(boulder) {
+      var limit = 0;
+      if (boulder.climbed) {
+        limit = 1;
+      }
       boulder.tries = boulder.tries - 1;
+      if ( boulder.tries < limit) {
+          boulder.tries = limit;
+      }
   };
 
 }
