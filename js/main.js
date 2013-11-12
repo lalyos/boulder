@@ -1,9 +1,11 @@
 function BoulderCtrl($scope) {
+    
+    $scope.loggedIn = false;
   $scope.boulders = [
-    {name:'kalacs', diff:'red',  climbed:false, tries:0},
-    {name:'hokifli',diff:'green', climbed:false, tries:0},
-    {name:'minyon',diff:'green', climbed:false, tries:0},
-    {name:'isler',diff:'yellow', climbed:false, tries:0}
+    {id:1, name:'kalacs', diff:'red',  climbed:false, tries:0},
+    {id:2, name:'hokifli',diff:'green', climbed:false, tries:0},
+    {id:3, name:'minyon',diff:'green', climbed:false, tries:0},
+    {id:4, name:'isler',diff:'yellow', climbed:false, tries:0}
   ];
   
   $scope.climbed = function() {
@@ -20,4 +22,14 @@ function BoulderCtrl($scope) {
        
       return clazz;
   };
+  
+  $scope.selectBoulder = function(id) {
+      $scope.selected = id;
+  };
+  
+  $scope.login = function() {
+      $scope.username = $scope.usernameInput;
+      $scope.loggedIn = true;
+  };
+
 }

@@ -35,12 +35,16 @@
                 border-color: #eea236;           
             }
             
-            a.list-group-item:hover{
-                background-color: #cccccc;
+            a.list-group-item  i {
+                position: absolute;
+                font-size: 32px;
+                left: 10px;
             }
             
-            i {
-                font-size: 24px;
+            a.list-group-item {
+                position: relative;
+                padding: 12px 15px 12px 50px ;
+                    
             }
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -49,55 +53,42 @@
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
     </head>
-    <body>
+    <body ng-controller="BoulderCtrl">
 
-      <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Ujjero</a>
-        </div>
-        <div class="navbar-collapse collapse">
-<!--          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>-->
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-                <input type="text" ng-model="username" placeholder="Username" class="form-control">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Ujjero</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right" ng-hide="! loggedIn" >
+                    <li ><a href="#">{{username}}</a></li>
+                </ul>
+                
+                <form class="navbar-form navbar-right" ng-hide="loggedIn">
+
+                    <div class="form-group">
+                        <input type="text" ng-model="usernameInput" placeholder="Username" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success" ng-click="login()" >Sign in</button>
+                </form>
+
             </div>
-              <button type="submit" class="btn btn-success"  >Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
+        </div>
 
 
-    <div class="container" ng-controller="BoulderCtrl">
+    <div class="container" >
 
         <div class="row">
         <div class="col-xs-12">
             
             
             <div class="list-group" >
-                <a ng-repeat="boulder in boulders" href="#" class="list-group-item"
-                   ng-click="boulder.climbed = ! boulder.climbed">
+                <a ng-repeat="boulder in boulders" href="#" class="list-group-item" ng-class=" boulder.id == selected ? 'active': '' "
+                   ng-click="selectBoulder(boulder.id)"
+                   >
 
-                    <i ng-class="checkedClass(boulder.climbed)"></i> 
+                    <i ng-class="checkedClass(boulder.climbed)" ng-click="boulder.climbed = ! boulder.climbed"></i> 
 
                     {{boulder.name}}
                      <span class="badge {{boulder.diff}}">{{boulder.tries}}</span>
@@ -108,8 +99,8 @@
 
 
       <footer>
-        <p>You are logged in as {{username}} </p>
         <p><span class="badge">{{climbed()}}</span></p>
+        <p>selected: {{selected}}</p>
       </footer>
     </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.js"><\/script>')</script>
