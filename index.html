@@ -34,11 +34,11 @@
                 background-color: #f0ad4e;
                 border-color: #eea236;           
             }
-            
+
             a.list-group-item {
                 position: relative;
                 padding: 12px 15px 12px 50px ;
-                    
+
             }
             .loggedin {
                 position: absolute;
@@ -49,26 +49,26 @@
             .navbar .container {
                 position: relative;
             }
-            
+
             i.glyphicon-plus-sign {
                 position: absolute;
                 right: 110px;
                 font-size: 32px;
             }
 
-           i.glyphicon-minus-sign {
+            i.glyphicon-minus-sign {
                 position: absolute;
                 right: 70px;
                 font-size: 32px;
             }
 
-           i.glyphicon-check,
-           i.glyphicon-unchecked {
+            i.glyphicon-check,
+            i.glyphicon-unchecked {
                 position: absolute;
                 font-size: 32px;
                 left: 10px;
             }
-            
+
 
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -85,19 +85,19 @@
                     <a class="navbar-brand" href="#">Ujjero</a>
                 </div>
 
-                <div class="loggedin" ng-hide="! loggedIn" >
+                <div class="loggedin" ng-hide="!loggedIn" >
                     {{username}}
                 </div>
             </div>
         </div>
 
 
-    <div class="container" >
+        <div class="container" >
 
             <div class="jumbotron" ng-hide="loggedIn">
                 <h1>Log in</h1>
-                
-                                <form >
+
+                <form >
 
                     <div class="form-group">
                         <input type="text" ng-model="usernameInput" placeholder="Username" class="form-control">
@@ -110,35 +110,35 @@
                 </p>
             </div>
 
-        
-        <div class="row">
-        <div class="col-xs-12" ng-hide="! loggedIn">
-            
-            
-            <div class="list-group" >
-                <a ng-repeat="boulder in boulders" href="#" class="list-group-item" ng-class=" boulder.id == selected ? 'active': '' "
-                   ng-click="selectBoulder(boulder.id)"
-                   >
 
-                    <i ng-class="checkedClass(boulder.climbed)" ng-click="boulder.climbed = ! boulder.climbed"></i> 
+            <div class="row">
+                <div class="col-xs-12" ng-hide="!loggedIn">
 
-                    {{boulder.name}}
-                    
-                    <span ng-hide="boulder.id != selected">
-                        <i class="glyphicon glyphicon-plus-sign" ng-click="boulder.tries = boulder.tries + 1" ></i>
-                        <i class="glyphicon glyphicon-minus-sign" ng-click="boulder.tries = boulder.tries - 1" ></i>
-                    </span>
-                     <span class="badge {{boulder.diff}}">{{boulder.tries}}</span>
-                </a>
+
+                    <div class="list-group" >
+                        <a ng-repeat="boulder in boulders" href="#" class="list-group-item" ng-class=" boulder.id == selected ? 'active': '' "
+                           ng-click="selectBoulder(boulder.id)"
+                           >
+
+                            <i ng-class="checkedClass(boulder.climbed)" ng-click="boulder.climbed = !boulder.climbed"></i> 
+
+                            {{boulder.name}}
+
+                            <span ng-hide="boulder.id != selected">
+                                <i class="glyphicon glyphicon-plus-sign" ng-click="boulder.tries = boulder.tries + 1" ></i>
+                                <i class="glyphicon glyphicon-minus-sign" ng-click="boulder.tries = boulder.tries - 1" ></i>
+                            </span>
+                            <span class="badge {{boulder.diff}}">{{boulder.tries}}</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-      </div>
 
 
-      <footer>
-        <p><span class="badge">{{climbed()}}</span></p>
-      </footer>
-    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
+            <footer>
+                <p><span class="badge">{{climbed()}}</span></p>
+            </footer>
+        </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
@@ -146,10 +146,12 @@
         <script src="js/main.js"></script>
 
         <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src='//www.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
+                        var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+                        (function(d, t) {
+                            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                            g.src = '//www.google-analytics.com/ga.js';
+                            s.parentNode.insertBefore(g, s)
+                        }(document, 'script'));
         </script>
     </body>
 </html>
