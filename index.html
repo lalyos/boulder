@@ -120,7 +120,7 @@
                            ng-click="selectBoulder(boulder.id)"
                            >
 
-                            <i ng-class="checkedClass(boulder.climbed)" ng-click="boulder.climbed = !boulder.climbed"></i> 
+                            <i ng-class="checkedClass(boulder.climbed)" ng-click="toggleClimbed(boulder)"></i> 
 
                             {{boulder.name}}
 

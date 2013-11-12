@@ -47,4 +47,11 @@ function BoulderCtrl($scope) {
       }
   };
 
+  $scope.toggleClimbed = function(boulder) {
+      boulder.climbed = !boulder.climbed;
+      if (boulder.climbed && boulder.tries == 0) {
+          boulder.tries = 1;
+      }
+  };
+  
 }
