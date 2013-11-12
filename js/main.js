@@ -28,8 +28,10 @@ function BoulderCtrl($scope) {
   };
   
   $scope.login = function() {
-      $scope.username = $scope.usernameInput;
-      $scope.loggedIn = true;
+    if ($scope.usernameInput.length >= 3) {
+        $scope.username = $scope.usernameInput;
+        $scope.loggedIn = true;
+    }
   };
 
   $scope.increaseTries = function(boulder) {
