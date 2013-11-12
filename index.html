@@ -46,6 +46,12 @@
                 padding: 12px 15px 12px 50px ;
                     
             }
+            .loggedin {
+                position: absolute;
+                color: white;
+                top: 15px;
+                right: 20px;
+            }
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
@@ -61,9 +67,9 @@
                     <a class="navbar-brand" href="#">Ujjero</a>
                 </div>
 
-                <ul class="nav navbar-nav navbar-right" ng-hide="! loggedIn" >
-                    <li ><a href="#">{{username}}</a></li>
-                </ul>
+                <div class="loggedin" ng-hide="! loggedIn" >
+                    {{username}}
+                </div>
                 
                 <form class="navbar-form navbar-right" ng-hide="loggedIn">
 
