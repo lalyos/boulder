@@ -43,6 +43,14 @@ function BoulderCtrl($scope) {
     });
     return count;
   };
+
+  $scope.climbedOnly = function(diff) {
+    var count = 0;
+    angular.forEach($scope.boulders, function(boulder) {
+      count += boulder.climbed && diff === boulder.diff ? 1 : 0;
+    });
+    return count;
+  };
   
   $scope.checkedClass = function(boulder) {
       var clazz = boulder.diff +  "_check glyphicon " ;

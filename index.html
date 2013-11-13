@@ -121,6 +121,10 @@
                 padding-top: 10px;
                 padding-bottom: 40px;
             }
+            
+            .username {
+                padding-left: 10px;
+            }
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
@@ -132,23 +136,20 @@
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
-<!--                <div class="navbar-header">
+                <div class="navbar-header">
                     <a class="navbar-brand" href="#">Ujjero</a>
                     
-                </div>-->
-
-        <div class="diff-filter" ng-show="loggedIn">
-            <div class="btn-group" >
-                <button type="button" class="btn btn-default" ng-click="diffFilter='all'">All</button>
-                <button type="button" class="btn btn-danger" ng-click="diffFilter='red'">R</button>
-                <button type="button" class="btn btn-success" ng-click="diffFilter='green'">G</button>
-                <button type="button" class="btn btn-warning" ng-click="diffFilter='yellow'">Y</button>
-                <button type="button" class="btn btn-primary" ng-click="diffFilter='blue'">B</button>
-            </div>
-        </div>
+                </div>
 
                 <div class="loggedin" ng-hide="!loggedIn" >
-                    {{username}} <span class="badge">{{climbed()}}</span>
+                    <span class="badge" ng-click="diffFilter='all'">{{climbed()}}</span>
+                    <span class="badge red" ng-click="diffFilter='red'">{{climbedOnly('red')}}</span>
+                    <span class="badge green" ng-click="diffFilter='green'">{{climbedOnly('green')}}</span>
+                    <span class="badge yellow" ng-click="diffFilter='yellow'">{{climbedOnly('yellow')}}</span>
+                    <span class="badge blue" ng-click="diffFilter='blue'">{{climbedOnly('blue')}}</span>
+                    
+                    <span class="username">{{username}} </span>
+
                 </div>
             </div>
         </div>
