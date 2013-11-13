@@ -14,7 +14,9 @@
                 padding-bottom: 20px;
             }
             .red{
-                background: red;
+                color: #fff;
+                background-color: #d9534f;
+                border-color: #d43f3a;
             }
 
             .green{
@@ -33,6 +35,23 @@
                 color: #fff;
                 background-color: #f0ad4e;
                 border-color: #eea236;           
+            }
+
+            
+            .red_check{
+                color: #d9534f;
+            }
+
+            .green_check{
+                color: #5cb85c;
+            }
+
+            .blue_check{
+                color: #428bca;
+            }
+
+            .yellow_check{
+                color: #f0ad4e;
             }
 
             a.list-group-item {
@@ -125,7 +144,7 @@
                            ng-click="selectBoulder(boulder.id)"
                            >
 
-                            <i ng-class="checkedClass(boulder.climbed)" ng-click="toggleClimbed(boulder)"></i> 
+                            <i ng-class="checkedClass(boulder)" ng-click="toggleClimbed(boulder)"></i> 
 
                             {{boulder.name}}
 

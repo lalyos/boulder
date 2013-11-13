@@ -16,10 +16,13 @@ function BoulderCtrl($scope) {
     return count;
   };
   
-  $scope.checkedClass = function(climbed) {
-      var clazz = "glyphicon glyphicon-unchecked";
-      if (climbed) clazz = "glyphicon glyphicon-check";
-       
+  $scope.checkedClass = function(boulder) {
+      var clazz = boulder.diff +  "_check glyphicon " ;
+      if (boulder.climbed) {
+          clazz = clazz + "glyphicon-check";
+      } else {
+          clazz = clazz + "glyphicon-unchecked";
+      }
       return clazz;
   };
   
