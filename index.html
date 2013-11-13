@@ -165,7 +165,7 @@
                 <div class="col-xs-12" ng-hide="!loggedIn">
 
                     <div class="list-group" >
-                        <a ng-repeat="boulder in boulders| filter:filterByDifficulty" href="#" class="list-group-item" ng-class=" boulder.id == selected ? 'active': '' "
+                        <a ng-repeat="boulder in boulders| filter:filterByDifficulty" href="#" onclick="return false;" class="list-group-item" ng-class=" boulder.id == selected ? 'active': '' "
                            ng-click="selectBoulder(boulder.id)"
                            >
 
