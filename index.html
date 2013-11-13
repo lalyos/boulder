@@ -66,6 +66,10 @@
                 right: 20px;
                 text-transform:uppercase;
             }
+            
+            .boulder-name {
+                text-transform: capitalize
+            }
             .navbar .container {
                 position: relative;
             }
@@ -152,7 +156,7 @@
 
                             <i ng-class="checkedClass(boulder)" ng-click="toggleClimbed(boulder)"></i> 
 
-                            {{boulder.name}}
+                            <span class="boulder-name">{{boulder.name}}</span>
 
                             <span ng-show="boulder.id == selected && ! boulder.climbed">
                                 <i class="glyphicon glyphicon-plus-sign" ng-click="increaseTries(boulder)" ></i>
