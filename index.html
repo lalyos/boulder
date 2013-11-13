@@ -104,6 +104,10 @@
                 right: 10px;
                 top: 8px;
             }
+            
+            .diff-filter{
+                padding: 7px 0px 0px 10px;
+            }
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
@@ -116,9 +120,9 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Ujjero</a>
+<!--                    <a class="navbar-brand" href="#">Ujjero</a>-->
                     
-                    <div class="btn-group">
+                    <div class="btn-group diff-filter">
                         <button type="button" class="btn btn-default" ng-click="diffFilter='all'">All</button>
                         <button type="button" class="btn btn-danger" ng-click="diffFilter='red'">R</button>
                         <button type="button" class="btn btn-success" ng-click="diffFilter='green'">G</button>
