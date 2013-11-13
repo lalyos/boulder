@@ -114,6 +114,11 @@
                 position: fixed;
                 width: 100%;
             }
+            
+            .page-container {
+                padding-top: 10px;
+                padding-bottom: 40px;
+            }
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
@@ -137,7 +142,7 @@
         </div>
 
 
-        <div class="container" >
+        <div class="container page-container" >
 
             <div class="jumbotron" ng-hide="loggedIn">
                 <h1>Log in</h1>
@@ -179,16 +184,19 @@
             </div>
 
 
-            <footer>
-                    <div class="btn-group diff-filter">
-                        <button type="button" class="btn btn-default" ng-click="diffFilter='all'">All</button>
-                        <button type="button" class="btn btn-danger" ng-click="diffFilter='red'">R</button>
-                        <button type="button" class="btn btn-success" ng-click="diffFilter='green'">G</button>
-                        <button type="button" class="btn btn-warning" ng-click="diffFilter='yellow'">Y</button>
-                        <button type="button" class="btn btn-primary" ng-click="diffFilter='blue'">B</button>
-                    </div>
-            </footer>
-        </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
+        </div> <!-- /container -->        
+        
+        <footer>
+            <div class="btn-group diff-filter" ng-show="loggedIn">
+                <button type="button" class="btn btn-default" ng-click="diffFilter='all'">All</button>
+                <button type="button" class="btn btn-danger" ng-click="diffFilter='red'">R</button>
+                <button type="button" class="btn btn-success" ng-click="diffFilter='green'">G</button>
+                <button type="button" class="btn btn-warning" ng-click="diffFilter='yellow'">Y</button>
+                <button type="button" class="btn btn-primary" ng-click="diffFilter='blue'">B</button>
+            </div>
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
