@@ -117,6 +117,14 @@
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Ujjero</a>
+                    
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default" ng-click="diffFilter='all'">All</button>
+                        <button type="button" class="btn btn-danger" ng-click="diffFilter='red'">R</button>
+                        <button type="button" class="btn btn-success" ng-click="diffFilter='green'">G</button>
+                        <button type="button" class="btn btn-warning" ng-click="diffFilter='yellow'">Y</button>
+                        <button type="button" class="btn btn-primary" ng-click="diffFilter='blue'">B</button>
+                    </div>
                 </div>
 
                 <div class="loggedin" ng-hide="!loggedIn" >
@@ -134,7 +142,7 @@
                 <form >
 
                     <div class="form-group">
-                        <input type="text" ng-model="usernameInput" ng-minlength="3" placeholder="Username" class="form-control">
+                        <input type="text" ng-model="usernameInput" ng-minlength="3" placeholder="Username" class="form-control" >
                     </div>
                     <button type="submit" class="btn btn-success" ng-click="login()" >Sign in</button>
                 </form>
@@ -148,9 +156,8 @@
             <div class="row">
                 <div class="col-xs-12" ng-hide="!loggedIn">
 
-
                     <div class="list-group" >
-                        <a ng-repeat="boulder in boulders" href="#" class="list-group-item" ng-class=" boulder.id == selected ? 'active': '' "
+                        <a ng-repeat="boulder in boulders| filter:filterByDifficulty" href="#" class="list-group-item" ng-class=" boulder.id == selected ? 'active': '' "
                            ng-click="selectBoulder(boulder.id)"
                            >
 

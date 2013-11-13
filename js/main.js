@@ -1,5 +1,7 @@
 function BoulderCtrl($scope) {
     
+    $scope.diffFilter = 'all'
+    //$scope.usernameInput='xxx';
     $scope.loggedIn = false;
   $scope.boulders = [
     {id:1, name:'midnight', diff:'red',  climbed:false, tries:0},
@@ -80,9 +82,18 @@ function BoulderCtrl($scope) {
 
   $scope.toggleClimbed = function(boulder) {
       boulder.climbed = !boulder.climbed;
-      if (boulder.climbed && boulder.tries == 0) {
+      if (boulder.climbed && boulder.tries === 0) {
           boulder.tries = 1;
       }
   };
+
+    $scope.filterByDifficulty = function(boulder) {
+        if ($scope.diffFilter === 'all') {
+            return true;
+        } else {
+            return boulder.diff === $scope.diffFilter;
+        }
+    };
+  
   
 }
