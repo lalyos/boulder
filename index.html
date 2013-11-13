@@ -106,14 +106,15 @@
             }
             
             .diff-filter{
-                margin: 0px;
+/*                margin: 0px;
                 padding: 10px;
                 left: 0px;
                 bottom: 0;
                 background: #222;
                 position: fixed;
                 width: 100%;
-                text-align: center;
+                text-align: center;*/
+                padding: 8px 0 0 10px;
             }
             
             .page-container {
@@ -131,10 +132,20 @@
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
-                <div class="navbar-header">
+<!--                <div class="navbar-header">
                     <a class="navbar-brand" href="#">Ujjero</a>
                     
-                </div>
+                </div>-->
+
+        <div class="diff-filter" ng-show="loggedIn">
+            <div class="btn-group" >
+                <button type="button" class="btn btn-default" ng-click="diffFilter='all'">All</button>
+                <button type="button" class="btn btn-danger" ng-click="diffFilter='red'">R</button>
+                <button type="button" class="btn btn-success" ng-click="diffFilter='green'">G</button>
+                <button type="button" class="btn btn-warning" ng-click="diffFilter='yellow'">Y</button>
+                <button type="button" class="btn btn-primary" ng-click="diffFilter='blue'">B</button>
+            </div>
+        </div>
 
                 <div class="loggedin" ng-hide="!loggedIn" >
                     {{username}} <span class="badge">{{climbed()}}</span>
@@ -187,15 +198,6 @@
 
         </div> <!-- /container -->        
         
-        <div class="diff-filter" ng-show="loggedIn">
-            <div class="btn-group" >
-                <button type="button" class="btn btn-default" ng-click="diffFilter='all'">All</button>
-                <button type="button" class="btn btn-danger" ng-click="diffFilter='red'">R</button>
-                <button type="button" class="btn btn-success" ng-click="diffFilter='green'">G</button>
-                <button type="button" class="btn btn-warning" ng-click="diffFilter='yellow'">Y</button>
-                <button type="button" class="btn btn-primary" ng-click="diffFilter='blue'">B</button>
-            </div>
-        </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.js"><\/script>')</script>
