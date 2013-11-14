@@ -99,6 +99,10 @@ function BoulderCtrl($scope) {
       if (boulder.climbed && boulder.tries === 0) {
           boulder.tries = 1;
       }
+      
+      if (boulder.climbed) {
+          $scope.diffFilter = 'all';
+      } 
   };
 
     $scope.filterByDifficulty = function(boulder) {
