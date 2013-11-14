@@ -56,8 +56,13 @@ function BoulderCtrl($scope) {
       if (boulder.climbed) {
           clazz = "green_check glyphicon glyphicon-check";
       } else {
-          if (boulder.tries > 0) {
+          if (boulder.tries > 5) {
               clazz = clazz + " red_check";
+          } else {
+                if (boulder.tries > 0) {
+                    clazz = clazz + " yellow_check";
+                }
+
           }
       }
       return clazz;
@@ -100,9 +105,19 @@ function BoulderCtrl($scope) {
         if ($scope.diffFilter === 'all') {
             return true;
         } else {
+            if ($scope.diffFilter === 'unclimbed') {
+                return ! boulder.climbed;
+            }
             return boulder.diff === $scope.diffFilter;
         }
     };
-  
+
+  $scope.toggleFilterUnclimbed = function() {
+    if ($scope.diffFilter === 'all') {
+        $scope.diffFilter = 'unclimbed';
+    } else {
+        $scope.diffFilter = 'all';
+    }
+  };
   
 }

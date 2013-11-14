@@ -146,7 +146,7 @@
                 </div>
 
                 <div class="loggedin" ng-hide="!loggedIn" >
-                    top: <span class="badge green" >{{climbed()}}</span>
+                    top: <span class="badge green" ng-click="toggleFilterUnclimbed()" >{{climbed()}}</span>
                     tries: <span class="badge" >{{climbedTries()}}</span>
                     
                     <span class="username">{{username}} </span>
