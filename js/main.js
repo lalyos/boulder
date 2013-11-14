@@ -41,13 +41,24 @@ function BoulderCtrl($scope) {
     });
     return count;
   };
+
+    $scope.climbedTries = function() {
+    var count = 0;
+    angular.forEach($scope.boulders, function(boulder) {
+        if (boulder.climbed) 
+          count += boulder.tries;
+    });
+    return count;
+  };
   
   $scope.checkedClass = function(boulder) {
-      var clazz = boulder.diff +  "_check glyphicon " ;
+      var clazz = "glyphicon glyphicon-unchecked";
       if (boulder.climbed) {
-          clazz = clazz + "glyphicon-check";
+          clazz = "green_check glyphicon glyphicon-check";
       } else {
-          clazz = clazz + "glyphicon-unchecked";
+          if (boulder.tries > 0) {
+              clazz = clazz + " red_check";
+          }
       }
       return clazz;
   };

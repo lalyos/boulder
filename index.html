@@ -146,11 +146,8 @@
                 </div>
 
                 <div class="loggedin" ng-hide="!loggedIn" >
-                    <span class="badge" ng-click="diffFilter='all'">{{climbed()}}</span>
-                    <span class="badge red" ng-click="diffFilter='red'">{{climbedOnly('red')}}</span>
-                    <span class="badge green" ng-click="diffFilter='green'">{{climbedOnly('green')}}</span>
-                    <span class="badge yellow" ng-click="diffFilter='yellow'">{{climbedOnly('yellow')}}</span>
-                    <span class="badge blue" ng-click="diffFilter='blue'">{{climbedOnly('blue')}}</span>
+                    top: <span class="badge green" >{{climbed()}}</span>
+                    tries: <span class="badge" >{{climbedTries()}}</span>
                     
                     <span class="username">{{username}} </span>
 
@@ -194,7 +191,7 @@
                                 <i class="glyphicon glyphicon-plus-sign" ng-click="increaseTries(boulder)" ></i>
                                 <i class="glyphicon glyphicon-minus-sign" ng-click="decreaseTries(boulder)" ></i>
                             </span>
-                            <span class="badge {{boulder.diff}}">{{boulder.tries}}</span>
+                            <span class="badge">{{boulder.tries}}</span>
                         </a>
                     </div>
                 </div>
