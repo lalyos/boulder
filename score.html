@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="refresh" content="300">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+            .red{
+                color: #fff;
+                background-color: #d9534f;
+                border-color: #d43f3a;
+            }
+
+            .green{
+                color: #fff;
+                background-color: #5cb85c;
+                border-color: #4cae4c;
+            }
+
+            .blue{
+                color: #fff;
+                background-color: #428bca;
+                border-color: #357ebd;
+            }
+
+            .yellow{
+                color: #fff;
+                background-color: #f0ad4e;
+                border-color: #eea236;           
+            }
+
+            
+            .red_check{
+                color: #d9534f;
+            }
+
+            .green_check{
+                color: #5cb85c;
+            }
+
+            .blue_check{
+                color: #428bca;
+            }
+
+            .yellow_check{
+                color: #f0ad4e;
+            }
+
+            a.list-group-item {
+                position: relative;
+                padding: 12px 15px 12px 50px ;
+
+            }
+            .loggedin {
+                position: absolute;
+                color: white;
+                top: 12px;
+                right: 10px;
+                text-transform:uppercase;
+            }
+            .loggedin span {
+                font-size: large;
+
+            }
+
+            .boulder-name {
+                text-transform: capitalize
+            }
+            .navbar .container {
+                position: relative;
+            }
+
+            i.glyphicon-plus-sign {
+                position: absolute;
+                right: 110px;
+                font-size: 32px;
+            }
+
+            i.glyphicon-minus-sign {
+                position: absolute;
+                right: 70px;
+                font-size: 32px;
+            }
+
+            i.glyphicon-check,
+            i.glyphicon-unchecked {
+                position: absolute;
+                font-size: 32px;
+                left: 10px;
+            }
+
+            .navbar .badge {
+                margin-right: 0px;
+                margin-left: 4px;
+            }
+            
+            .list-group .badge {
+                padding: 8px 12px;
+                position: absolute;
+                right: 10px;
+                top: 8px;
+            }
+            
+            .diff-filter{
+/*                margin: 0px;
+                padding: 10px;
+                left: 0px;
+                bottom: 0;
+                background: #222;
+                position: fixed;
+                width: 100%;
+                text-align: center;*/
+                padding: 8px 0 0 10px;
+            }
+            
+            .page-container {
+                padding-top: 10px;
+                padding-bottom: 40px;
+            }
+            
+            .username {
+                padding-left: 10px;
+            }
+            
+            td {
+				font-size: large;
+				//padding: 0px !important;             }
+            
+            .climber-name{
+            		text-transform: uppercase;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    </head>
+    <body ng-controller="BoulderCtrl">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" ng-click="refreshHighscore()">Philippe Ribiere - Boulder Jam</a>
+                    
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="container page-container" >
+
+
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="table table-striped table-condensed">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Name</th>
+							<th>Top</th>
+							<th>Tries</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="climber in highscore| orderBy:scoreOrder:true"
+							>
+
+							<!--   ng-show="$index <15" -->
+
+							<td>{{$index + 1}}</td>
+							<td class="climber-name">{{climber.name}}</td>
+							<td>{{climber.top}}</td>
+							<td>{{climber.tries}}</td>
+						</tr>
+
+					</tbody>
+				</table>
+
+			</div>
+
+
+	</div> <!-- /container -->        
+        
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <script>
+                        var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+                        (function(d, t) {
+                            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                            g.src = '//www.google-analytics.com/ga.js';
+                            s.parentNode.insertBefore(g, s)
+                        }(document, 'script'));
+        </script>
+    </body>
+</html>

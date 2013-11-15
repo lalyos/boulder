@@ -1,8 +1,10 @@
-function BoulderCtrl($scope) {
-    
+function BoulderCtrl($scope, $http) {
+    $scope.debugEnabled = false;
     $scope.diffFilter = 'all'
     //$scope.usernameInput='xxx';
     $scope.loggedIn = false;
+    //$scope.highscore = [{"id":2,"name":"geza","top":15,"tries":20,"version":2},{"id":3,"name":"dudi","top":4,"tries":8,"version":3}];
+    
   $scope.boulders = [
     {id:1, name:'a', diff:'red',  climbed:false, tries:0},
     {id:2, name:'b', diff:'red',  climbed:false, tries:0},
@@ -102,7 +104,9 @@ function BoulderCtrl($scope) {
       
       if (boulder.climbed) {
           $scope.diffFilter = 'all';
-      } 
+      }
+      $scope.sendClimbs();
+
   };
 
     $scope.filterByDifficulty = function(boulder) {
@@ -115,6 +119,7 @@ function BoulderCtrl($scope) {
             return boulder.diff === $scope.diffFilter;
         }
     };
+    
 
   $scope.toggleFilterUnclimbed = function() {
     if ($scope.diffFilter === 'all') {
@@ -124,4 +129,31 @@ function BoulderCtrl($scope) {
     }
   };
   
+    $scope.sendClimbs = function() {
+//        var tries = 0;
+//        var tops = 0;
+//        angular.forEach($scope.boulders, function(boulder) {
+//            if (boulder.climbed) {
+//            		tries += boulder.tries;
+//            		tops += 1;
+//            }
+//        });
+//        $http.get('/climbers/update/' 
+//        		+ $scope.username + '/' + tops + '/' + tries).success(function(data) {
+//            $scope.restResponse = data;
+//        });
+    };
+  
+    $scope.refreshHighscore = function() {
+//        $http.get('/climbers').success(function(data) {
+//            $scope.highscore = data;
+//        });
+    		$scope.highscore = [{"id":6,"name":"drusza","top":20,"tries":22,"version":19},{"id":7,"name":"simon bence","top":20,"tries":20,"version":19},{"id":8,"name":"bubu","top":9,"tries":13,"version":0},{"id":10,"name":"travis","top":20,"tries":34,"version":1},{"id":11,"name":"lovi","top":18,"tries":34,"version":0},{"id":12,"name":"ben","top":7,"tries":7,"version":0},{"id":13,"name":"hum zsolt","top":13,"tries":21,"version":0},{"id":14,"name":"marko vivien","top":8,"tries":9,"version":0},{"id":15,"name":"muki","top":10,"tries":13,"version":0},{"id":16,"name":"kucsera balint","top":19,"tries":25,"version":0},{"id":17,"name":"Balogh Claudia","top":7,"tries":8,"version":0},{"id":18,"name":"Krivarics Dóri","top":9,"tries":19,"version":0},{"id":19,"name":"Payer Kornél","top":20,"tries":26,"version":0},{"id":20,"name":"Bobi","top":18,"tries":22,"version":0},{"id":22,"name":"szisz","top":12,"tries":15,"version":0},{"id":23,"name":"benke balazs","top":20,"tries":42,"version":0},{"id":24,"name":"csohany csabi","top":18,"tries":28,"version":0},{"id":25,"name":"Farkas Tomi","top":20,"tries":21,"version":0},{"id":26,"name":"Madarász Dávid","top":20,"tries":33,"version":0},{"id":27,"name":"Tóta Ádám","top":18,"tries":40,"version":0},{"id":28,"name":"Háber Balázs","top":19,"tries":29,"version":0},{"id":29,"name":"Holló Gerg?","top":14,"tries":30,"version":0},{"id":30,"name":"Kerényi Barna","top":20,"tries":20,"version":0},{"id":31,"name":"Drimba János","top":13,"tries":16,"version":0},{"id":32,"name":"Tóth Alexandra","top":10,"tries":13,"version":0},{"id":33,"name":"Borbély Gábor","top":18,"tries":20,"version":0},{"id":34,"name":"Scharnitzky Ádám","top":19,"tries":19,"version":0},{"id":35,"name":"laller","top":14,"tries":25,"version":10}];
+    };
+    
+    $scope.scoreOrder = function(climber) {
+    		return (climber.top + 1) + (1 / climber.tries);
+    };
+    
+    $scope.refreshHighscore();
 }
