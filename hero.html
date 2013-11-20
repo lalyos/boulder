@@ -10,6 +10,11 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">  
     
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script> 
+    <script type='text/javascript' src="https://dl.dropbox.com/u/6211055/PROJECTS/justGage/resources/js/justgage.min.js"></script>
+    
     <!-- Le styles -->
     <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
@@ -103,14 +108,34 @@
           <a href="hero.html#" class="btn btn-warning btn-large">NAV Mutyi &raquo;</a>
           
           </p>
+          
+          
       </div>
 
+      <div class="row">
+        <div id="gauge" class="200x160px"></div>
+        
+      </div>
       <!-- Example row of columns -->
       <div class="row">
         <div class="span4">
           <h2>Trafik Muty</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="hero.html#">View details &raquo;</a></p>
+          
+          
+          
+          <script>
+
+          window.onload = function(){
+            var g = new JustGage({
+              id: "gauge", 
+              value: 20, 
+              min: 0,
+              max: 100,
+              title: "Jobban Teljesit"
+            }); 
+          }  
+          </script>
+          
         </div>
         <div class="span4">
           <h2>Föld Mutyi</h2>
