@@ -9,6 +9,7 @@
 
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">  
     
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
     <!-- Le styles -->
     <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
@@ -51,7 +52,7 @@
                                    <link rel="shortcut icon" href="http://getbootstrap.com/2.3.2/assets/ico/favicon.png">
   </head>
 
-  <body>
+  <body ng-app>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -94,7 +95,7 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-        <h1>Nemzeti Fölhő <i class="fa fa-cloud-upload fa-spin"></i> </h1> 
+        <h1>Nemzeti Fölhő <i class="fa fa-cloud-upload" ng-click="rotate=!rotate" ng-init="rotate=false" ng-class="rotate ? 'fa-spin' : '' "></i> </h1> 
         <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         <p>
           <a href="hero.html#" class="btn btn-primary btn-large">Trafik Mutyi &raquo;</a>
