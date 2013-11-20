@@ -101,49 +101,39 @@
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
         <h1>Nemzeti Fölhő <i class="fa fa-cloud-upload" ng-click="rotate=!rotate" ng-init="rotate=false" ng-class="rotate ? 'fa-spin' : '' "></i> </h1> 
+        
         <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         <p>
+
           <a href="hero.html#" class="btn btn-primary btn-large">Trafik Mutyi &raquo;</a>
           <a href="hero.html#" class="btn btn-success btn-large">Föld Mutyi &raquo;</a>
-          <a href="hero.html#" class="btn btn-warning btn-large">NAV Mutyi &raquo;</a>
+          <a href="hero.html#" class="btn btn-warning btn-large"> NAV Mutyi &raquo;</a>
           
           </p>
           
           
       </div>
 
-      <div class="row">
-        <div id="gauge" class="200x160px"></div>
-        
-      </div>
       <!-- Example row of columns -->
       <div class="row">
-        <div class="span4">
-          <h2>Trafik Muty</h2>
+        
+        <div class="span4" ng-controller="kozgepCtrl">
+          <h2><i class="fa fa-road"></i> Kozgep</h2>
           
+          <div id="gauge" style="width:200px; height:160px"></div>
           
-          
-          <script>
-
-          window.onload = function(){
-            var g = new JustGage({
-              id: "gauge", 
-              value: 20, 
-              min: 0,
-              max: 100,
-              title: "Jobban Teljesit"
-            }); 
-          }  
-          </script>
-          
+          <i class="fa fa-plus-circle" ng-click="increaseJobban()" ></i>
+          <i class="fa fa-minus-circle" ng-click="decreaseJobban()" ></i>
         </div>
+        
         <div class="span4">
-          <h2>Föld Mutyi</h2>
+          <h2><i class="fa fa-globe"> </i>  Föld Mutyi</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn" href="hero.html#">View details &raquo;</a></p>
        </div>
-        <div class="span4">
 
+
+        <div class="span4">
           <div class="thumbnail">
                             <img src="https://raw.github.com/lalyos/boulder/gh-pages/cloud-matyo.png" alt="300x200"  >
                             <div class="caption">
@@ -162,7 +152,38 @@
         <p>&copy; Company 2013</p>
       </footer>
 
+
+
+
     </div> <!-- /container -->
+
+    <script>
+
+    function kozgepCtrl($scope) {
+      
+      $scope.jobban = 20;
+      $scope.g = new JustGage({
+        id: "gauge", 
+        value: $scope.jobban, 
+        min: 0,
+        max: 100,
+        title: "Jobban Teljesit"
+      });
+      
+      $scope.increaseJobban = function() {
+        $scope.jobban = $scope.jobban + 5;
+        $scope.g.refresh($scope.jobban);
+      }
+
+      $scope.decreaseJobban = function() {
+        $scope.jobban = $scope.jobban - 5;
+        $scope.g.refresh($scope.jobban);
+      }
+      
+    }
+    
+    
+    </script>
 
     <!-- Le javascript
     ================================================== -->
